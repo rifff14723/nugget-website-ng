@@ -6,11 +6,13 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: 'AIzaSyAzIDrBYzDza9VT8WH11oBpyb-oTEddJ5A',
-        authDomain: 'fcc-book-trading-91424.firebaseapp.com',
-        databaseURL: 'https://fcc-book-trading-91424.firebaseio.com',
-        projectId: 'fcc-book-trading-91424',
-        storageBucket: '',
-        messagingSenderId: '1057970477359'
+        apiKey: "AIzaSyBN5EesfgF5z7NDmtuVn8aD5VjIzePQF5k",
+        authDomain: "nugget-50f70.firebaseapp.com",
+        databaseURL: "https://nugget-50f70.firebaseio.com",
+        projectId: "nugget-50f70",
+        storageBucket: "nugget-50f70.appspot.com",
+        messagingSenderId: "266085779840",
+        appId: "1:266085779840:web:ea0b766a1f2ab7c5311965",
+        measurementId: "G-0JLXEP6LH8"
     }
 };

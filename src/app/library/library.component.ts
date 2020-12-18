@@ -3,7 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { switchMap } from 'rxjs/operator/switchMap';
 import { LibraryDialogComponent } from '../library-dialog/library-dialog.component';
 import { IdentityService } from '../shared/identity.service';
-import { Book, FirebaseLists, Identity, SelectableBook } from '../shared/models';
+import { Article, Book, FirebaseLists, Identity, SelectableBook } from '../shared/models';
 
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -12,6 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseListObservable } from 'angularfire2/database/firebase_list_observable';
 import { Observable } from 'rxjs/Observable';
+import AppRouteUrls from 'app/app-route-urls.enum';
 
 @Component({
     templateUrl: './library.component.html',
@@ -52,7 +53,8 @@ export class LibraryComponent implements OnDestroy {
     public identity: Identity;
     public books: FirebaseListObservable<SelectableBook[]>;
     public isSelectionMode: boolean;
-
+    public articles: FirebaseListObservable<Article[]>;
+    routeUrls = AppRouteUrls; 
     constructor(
         private db: AngularFireDatabase,
         private identityService: IdentityService,
@@ -71,7 +73,9 @@ export class LibraryComponent implements OnDestroy {
                     }
                 });
             });
-
+            
+        this.articles = <FirebaseListObservable<Article[]>>db.list(`/${FirebaseLists[FirebaseLists.Articles]}`); 
+        console.log(this.articles) ; 
         this.$isSelectionMode = this.$selectedBooks
             .takeWhile(() => this.isAlive)
             .map(selectedBooks => selectedBooks && !!selectedBooks.length);
@@ -88,6 +92,7 @@ export class LibraryComponent implements OnDestroy {
     }
 
     private addBook() {
+        console.log(this.articles) ; 
         const dialogRef = this.dialog.open(LibraryDialogComponent, {
             width: '80%',
             height: '50%'

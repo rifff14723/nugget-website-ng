@@ -28,11 +28,16 @@ export interface SelectableBook extends Book {
     isSelected: boolean;
 }
 
+export interface Article  {
+    title: string ; 
+}
+
 export interface FirebaseItem {
     $key: string;
 }
 
 export enum FirebaseLists {
+    Articles,
     books,
     trades,
     bookOwners

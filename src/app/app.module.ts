@@ -21,6 +21,9 @@ import { TrimTitlePipe } from './shared/trim-title.pipe';
 import { HttpModule } from '@angular/http';
 import { FilterByOwnerPipe } from 'app/shared/filter-by-owner-id.pipe';
 import { TradesComponent } from './trades/trades.component';
+import { ArticleComponent } from './article/article.component';
+//import { ArticleComponent } from './src/app/article/article.component';
+
 
 @NgModule({
     declarations: [
@@ -32,7 +35,8 @@ import { TradesComponent } from './trades/trades.component';
         FilterByTitlePipe,
         FilterByOwnerPipe,
         TrimTitlePipe,
-        TradesComponent
+        TradesComponent,
+        ArticleComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -44,7 +48,7 @@ import { TradesComponent } from './trades/trades.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
+        AngularFireModule.initializeApp(environment.firebase, 'Nugget'),
         AngularFireDatabaseModule,
         ReactiveFormsModule,
         HttpModule

@@ -1,3 +1,4 @@
+import { ArticleComponent } from './article/article.component';
 import { TradesComponent } from './trades/trades.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +11,7 @@ const appRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateAuthGuard] },
     { path: 'library', component: LibraryComponent, canActivate: [CanActivateAuthGuard] },
     { path: 'trades', component: TradesComponent, canActivate: [CanActivateAuthGuard] },
+    { path: 'article', component: ArticleComponent, canActivate: [CanActivateAuthGuard] },
     { path: '', component: DashboardComponent },
 ];
 

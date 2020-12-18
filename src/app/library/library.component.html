@@ -2,14 +2,24 @@
     <img *ngIf="identity?.imageUrl" [src]="identity?.imageUrl" class="identity-image">
     <h3>{{identity?.name}}'s library</h3>
 </div>
-<div>
+<!-- <div>
     <div class="books-container library">
         <div class="book-container" [@fadeIn] [@selected]="book.isSelected" *ngFor="let book of books | async | orderbytitle" (click)="selectBook(book)">
             <img [src]="book?.volumeInfo?.imageLinks?.smallThumbnail" class="book-image" />
             <div class="book-title">{{book.volumeInfo.title | trimtitle}}</div>
         </div>
     </div>
+</div> -->
+
+<div>
+    
+        <div class="book-container"  *ngFor="let article of articles | async" routerLinkActive="active" [routerLink] = "['/article']">
+            {{article.title}}
+        </div>
+    
 </div>
+
+
 <div class="fab-button-container">
     <button md-fab (click)="fabClick()" class="fab-button">
         <div [@spinned]="$isSelectionMode | async" (@spinned.done)="spinDone($event)">
@@ -18,3 +28,4 @@
         </div>
     </button>
 </div>
+
